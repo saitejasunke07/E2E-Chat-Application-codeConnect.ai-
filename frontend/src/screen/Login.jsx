@@ -12,7 +12,7 @@ const Login = () => {
 
     function submitHandler(e){
         e.preventDefault();
-        axios.post("/users/login",{
+        axios.post("https://codeconnect-ai.onrender.com//users/login",{
             email,
             password,
         },{ withCredentials: true }).then((res)=>{

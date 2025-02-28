@@ -14,7 +14,7 @@ const _dirname = path.resolve();
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",  
+    origin: "https://codeconnect-ai.onrender.com",  
     credentials: true, 
 })); //change it in production
 app.use(morgan("dev"));

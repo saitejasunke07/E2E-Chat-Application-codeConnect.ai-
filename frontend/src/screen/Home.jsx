@@ -14,7 +14,7 @@ const Home = () => {
       e.preventDefault();
       console.log({projectName});
 
-      axios.post("/projects/create",{
+      axios.post("https://codeconnect-ai.onrender.com/projects/create",{
         name:projectName,
       }).then((res)=>{
           console.log(res);
@@ -27,7 +27,7 @@ const Home = () => {
 
   function logoutHandler(e){
       e.preventDefault();
-      axios.get("/users/logout", { withCredentials: true }).
+      axios.get("https://codeconnect-ai.onrender.com/users/logout", { withCredentials: true }).
       then(
         ()=>{
           console.log("logout success");
@@ -43,7 +43,7 @@ const Home = () => {
   }
 
   useEffect(()=>{
-    axios.get("/projects/all").then((res)=>{
+    axios.get("https://codeconnect-ai.onrender.com/projects/all").then((res)=>{
       setProject(res.data.projects);
     }).catch(err=>{
       console.log(err);

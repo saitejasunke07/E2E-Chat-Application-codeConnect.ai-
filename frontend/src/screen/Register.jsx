@@ -10,7 +10,7 @@ const Register = () => {
     const navigate = useNavigate();
     function submitHandler(e){
         e.preventDefault();
-        axios.post("/users/register",{
+        axios.post("https://codeconnect-ai.onrender.com/users/register",{
             email,
             password,
         }).then((res)=>{

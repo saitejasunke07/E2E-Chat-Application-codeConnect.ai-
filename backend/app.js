@@ -16,7 +16,14 @@ const app = express();
 app.use(cors({
     origin: "https://codeconnect-ai.onrender.com",  
     credentials: true, 
-})); //change it in production
+}));
+ //change it in production
+app.use((req, res, next) => {
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+    res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+    next();
+});
+
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

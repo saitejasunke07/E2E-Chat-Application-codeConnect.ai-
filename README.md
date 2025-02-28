@@ -5,4 +5,4 @@ It is a secure platform to write and generate code , chat with others and save t
 To clone it :
 git clone https://github.com/HarshithBeta/codeconnect.git
 
-deployed link : https://codeconnect-ai.onrender.com/
+Deployed link : https://codeconnect-ai.onrender.com/

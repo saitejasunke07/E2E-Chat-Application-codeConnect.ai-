@@ -66,7 +66,7 @@ const Project = () => {
 
     function addCollaborators() {
 
-        axios.put("/projects/add-user", {
+        axios.put("https://codeconnect-ai.onrender.com/projects/add-user", {
             projectId: location.state.project._id,
             users: Array.from(selectedUserId)
         }).then(res => {
@@ -111,7 +111,7 @@ const Project = () => {
     
         try {
             // Update the database with the new message
-            const updatedProject = await axios.put(`/projects/${project._id}/messages`, {
+            const updatedProject = await axios.put(`https://codeconnect-ai.onrender.com/projects/${project._id}/messages`, {
                 sender: user,
                 message: message
             });
@@ -175,7 +175,7 @@ const Project = () => {
                 setMessages(prevMessages => [ ...prevMessages, data ]) 
                 try {
                     const aiSender = { _id: "ai", email: "AI" };
-                    const updatedProject = await axios.put(`/projects/${project._id}/messages`, {
+                    const updatedProject = await axios.put(`https://codeconnect-ai.onrender.com/projects/${project._id}/messages`, {
                         sender: aiSender,
                         message: message
                     });
@@ -192,7 +192,7 @@ const Project = () => {
         })
 
 
-        axios.get(`/projects/get-project/${location.state.project._id}`).then(res => {
+        axios.get(`https://codeconnect-ai.onrender.com/projects/get-project/${location.state.project._id}`).then(res => {
 
             console.log(res.data.project)
 
@@ -200,7 +200,7 @@ const Project = () => {
             setFileTree(res.data.project.fileTree || {})
         })
 
-        axios.get('/users/all').then(res => {
+        axios.get('https://codeconnect-ai.onrender.com/users/all').then(res => {
 
             setUsers(res.data.users)
 
@@ -211,7 +211,7 @@ const Project = () => {
         })
 
         try {
-            const response = await axios.get(`/projects/${project._id}/messages`);
+            const response = await axios.get(`https://codeconnect-ai.onrender.com/projects/${project._id}/messages`);
             setMessages(response.data.messages); 
         } catch (error) {
             console.error("Error fetching messages:", error);
@@ -223,7 +223,7 @@ const Project = () => {
    
 
     function saveFileTree(ft) {
-        axios.put('/projects/update-file-tree', {
+        axios.put('https://codeconnect-ai.onrender.com/projects/update-file-tree', {
             projectId: project._id,
             fileTree: ft
         }).then(res => {
